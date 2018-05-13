@@ -129,6 +129,7 @@ function ToDoItem(todoItem){
 				todoArr[i].completed = true;
 				console.log(JSON.stringify(todoArr));
 				domFunction.viewTodoListDom(todoArr);
+				todoitem.viewTodoList(status);
 				
 			}
 		} 
