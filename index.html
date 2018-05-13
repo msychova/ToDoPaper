@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>ToDoPaper</title>
+  <meta name="author" content="Maryna Sychova">
+ </head>
+	<body>		
+		<table width="100%">
+			<col width="350" valign="top">
+			<col width="250">
+			<tr align="left" valign="top">
+				<th>
+					<h2>Filter:</h2>
+						<form action="">
+							<input type="radio" name="ItemType" id="all" onclick="todoitem.viewTodoList('all');"> All<br>
+							<input type="radio" name="ItemType" id="not_completed" onclick="todoitem.viewTodoList('not_completed');"> Not completed<br>
+							<input type="radio" name="ItemType" id="completed" onclick="todoitem.viewTodoList('completed');"> Completed<br>			
+						</form>
+						<br>
+						<h2>List of items:</h2>
+						<div id="todo-items"></div><br>					
+						<div id="delete-item" style="color:darkgray"></div>
+				</th>
+				<th align="left" valign="top">
+					<br>
+					Add new ToDo item<br>
+					<input type="text" name="text" id="AddItemText"> 
+					<button name="add" id="additem" label="Add" width="100" onclick="domFunction.GetNewItemText()">Add</button>
+					<br><br>
+					<div id="new-item" style="color:darkgray"></div>
+					<p><br><br>
+					Edit ToDo item<br><br>
+					ID<br>
+					<input type="text" name="text" id="EditItemId" size="2"> <br>
+					Text<br>	
+					<input type="text" name="text" id="EditItemText"><br><br>
+					<button name="add" id="additem" label="Add" width="100" onclick="domFunction.GetEditItemParam()">Edit</button>
+					<div id="item-status" style="color:darkgray"></div>
+
+				</th>
+			</tr>			
+		</table>
+	</body>
+	
+	<script src="dom.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>	
+	<script src="functions.js"></script>
+ 	<script src="script.js"></script>
+	<script src="testfunctions.js"></script>
+	
+	<script src="history.json"></script>
+
+</html>
