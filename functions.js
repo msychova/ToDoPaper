@@ -2,20 +2,11 @@ let todoArr = []; //array with all todo items
 let tdid = 0; //default value of todo id
 let newItem = {};
 let status = '';
+var ToDoHistory = [];
 
 function ToDoItem(todoItem){
 	
-	var ToDoHistory = [];
-	
-	var initToDoHistory = function() {
-		$.getJSON( "history.json", function(data) {
-			console.log(data);	
-			ToDoHistory = data.data;
-		});
-	};
-	
-	initToDoHistory();
-	
+				
 	function todoItem (text,completed,id){
 		this.text = text;
 		this.completed = completed;
@@ -138,12 +129,30 @@ function ToDoItem(todoItem){
 				todoArr[i].completed = true;
 				console.log(JSON.stringify(todoArr));
 				domFunction.viewTodoListDom(todoArr);
+				
 			}
 		} 
 		
 		flag === false ? msg = `Item with ID: ${todoItemId} doesn\'t exist.`: msg = `Status of Item with ID: ${todoItemId} was updated to completed.`;
 		
 		return msg;	
+	}
+}
+
+const initToDoHistory = function() {
+		$.getJSON( "history.json", function(data) {
+			console.log(data);	
+			todoArr = data.data;
+			console.log(todoArr);	
+			getMaxID(todoArr);
+			todoitem.viewTodoList('all');
+		});
+	};
+
+const getMaxID = function(todoArr){
+	for(let i=0; i < todoArr.length;i++){
+		tdid = Math.max(todoArr[i].id) + 1;
+		console.log(tdid);
 	}
 }
 
