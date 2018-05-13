@@ -7,12 +7,14 @@ function DOM(){
 	this.addTodoItemDom = function(todoItem){
 		
 		let param;
+		let label = todoItem.text;
+		let id = todoItem.id;
 
 		if(todoItem.completed === false)
-		param = `<div id="itemrow">${JSON.stringify(todoItem.id)}.${JSON.stringify(todoItem.text)} <input type="checkbox" id="ToDoItem" value="not_completed" onclick="console.log(domFunction.GetCheckedItemId(${JSON.stringify(todoItem.id)}))">&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${JSON.stringify(todoItem.id)}))" title="Delete item">X</button></div>`; 
+		param = `<div id="itemrow">${id}. ${label} <input type="checkbox" id="ToDoItem" value="not_completed" onclick="console.log(domFunction.GetCheckedItemId(${id}))">&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${id}))" title="Delete item">X</button></div>`; 
 		
 		if(todoItem.completed === true)
-		param = `<div>${JSON.stringify(todoItem.id)}.${JSON.stringify(todoItem.text)} <input type="checkbox" name="ToDoItem" value="completed" checked>&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" style="background-color:red" style="text-color:white" onclick="console.log(domFunction.DeleteItemById(${JSON.stringify(todoItem.id)}) title="Delete item">X</button></div>`; 
+		param = `<div>${id}. ${label} <input type="checkbox" name="ToDoItem" value="completed" checked>&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" style="background-color:red" style="text-color:white" onclick="console.log(domFunction.DeleteItemById(${id}) title="Delete item">X</button></div>`; 
 		
 		ListDiv.innerHTML += param;
 		
@@ -24,11 +26,16 @@ function DOM(){
 		console.log(todoItem);
 		
 		for(let i=0;i < todoItem.length;i++){
-			if(todoItem[i].completed === false)
-			param += (`<div id="itemrow">${JSON.stringify(todoItem[i].id)}.${JSON.stringify(todoItem[i].text)} <input type="checkbox" id="ToDoItem" value="not_completed" onclick="console.log(domFunction.GetCheckedItemId(${JSON.stringify(todoItem[i].id)}))">&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${JSON.stringify(todoItem[i].id)}))" title="Delete item">X</button></div>`); 
+			let label = todoItem[i].text;
+			let id = todoItem[i].id;
+			
+			if(todoItem[i].completed === false)			
+
+				param += (`<div id="itemrow">${id}. ${label} <input type="checkbox" id="ToDoItem" value="not_completed" onclick="console.log(domFunction.GetCheckedItemId(${id}))">&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${id}))" title="Delete item">X</button></div>`); 
+			
 
 			if(todoItem[i].completed === true)
-			param += (`<div id="itemrow">${JSON.stringify(todoItem[i].id)}.${JSON.stringify(todoItem[i].text)} <input type="checkbox" name="ToDoItem" value="completed" checked disabled>&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${JSON.stringify(todoItem[i].id)}))" title="Delete item">X</button></div>`); 
+				param += (`<div id="itemrow">${id}. ${label} <input type="checkbox" name="ToDoItem" value="completed" checked disabled>&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${id}))" title="Delete item">X</button></div>`); 
 		}
 		
 		console.log(param);
@@ -39,11 +46,14 @@ function DOM(){
 		let param = "";
 		
 		for(let i=0;i < todoItem.length;i++){
+			let label = todoItem[i].text;
+			let id = todoItem[i].id;
+			
 			if(todoItem[i].completed === false)
-			param += (`<div id="itemrow">${JSON.stringify(todoItem[i].id)}.${JSON.stringify(todoItem[i].text)} <input type="checkbox" id="ToDoItem" value="not_completed" onclick="console.log(domFunction.GetCheckedItemId(${JSON.stringify(todoItem[i].id)}))">&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${JSON.stringify(todoItem[i].id)}))" title="Delete item">X</button></div>`); 
+			param += (`<div id="itemrow">${id}. ${label} <input type="checkbox" id="ToDoItem" value="not_completed" onclick="console.log(domFunction.GetCheckedItemId(${id}))">&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${id}))" title="Delete item">X</button></div>`); 
 
 			if(todoItem[i].completed === true)
-			param += (`<div id="itemrow">${JSON.stringify(todoItem[i].id)}.${JSON.stringify(todoItem[i].text)} <input type="checkbox" id="ToDoItem" value="completed" checked disabled>&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${JSON.stringify(todoItem[i].id)}))" title="Delete item">X</button></div>`); 
+			param += (`<div id="itemrow">${id}. ${label} <input type="checkbox" id="ToDoItem" value="completed" checked disabled>&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${id}))" title="Delete item">X</button></div>`); 
 		}
 		
 		ListDiv.innerHTML = param;
@@ -54,11 +64,15 @@ function DOM(){
 		let param = "";
 		
 		for(let i=0;i < todoItem.length;i++){
+			let label = todoItem[i].text;
+			let id = todoItem[i].id;
+			
 			if(todoItem[i].completed === false)
-			param += (`<div id="itemrow">${JSON.stringify(todoItem[i].id)}.${JSON.stringify(todoItem[i].text)} <input type="checkbox" id="ToDoItem" value="not_completed" onclick="console.log(domFunction.GetCheckedItemId(${JSON.stringify(todoItem[i].id)}))">&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${JSON.stringify(todoItem[i].id)}))" title="Delete item">X</button></div>`); 
+			param += (`<div id="itemrow">${id}. ${label} <input type="checkbox" id="ToDoItem" value="not_completed" onclick="console.log(domFunction.GetCheckedItemId(${id}))">&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${id}))" title="Delete item">X</button></div>`); 
+ 
 
 			if(todoItem[i].completed === true)
-			param += (`<div id="itemrow">${JSON.stringify(todoItem[i].id)}.${JSON.stringify(todoItem[i].text)} <input type="checkbox" id="ToDoItem" value="completed" checked disabled>&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${JSON.stringify(todoItem[i].id)}))" title="Delete item">X</button></div>`); 
+			param += (`<div id="itemrow">${id}. ${label} <input type="checkbox" id="ToDoItem" value="completed" checked disabled>&nbsp;&nbsp;&nbsp;<button style="border-radius:15px" onclick="console.log(domFunction.DeleteItemById(${id}))" title="Delete item">X</button></div>`); 
 		}
 		
 		console.log(param);
